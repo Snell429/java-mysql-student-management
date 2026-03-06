@@ -7,7 +7,9 @@ public class Main {
         StudentDAO dao = new StudentDAO();
 
         System.out.println("===== TOUS LES ETUDIANTS =====");
-
         dao.getAllStudents().forEach(System.out::println);
+
+        System.out.println("\n===== ETUDIANTS ET LEURS COURS =====");
+        dao.getStudentCourses();
     }
 }

@@ -124,4 +124,30 @@ public class StudentDAO {
 
         return students;
     }
+
+
+    // 🔹 5️⃣ Récupérer les cours des étudiants
+    public void getStudentCourses() {
+
+        String sql =
+            "SELECT s.name, c.title " +
+            "FROM student s " +
+            "JOIN enrollment e ON s.id = e.student_id " +
+            "JOIN course c ON e.course_id = c.id";
+
+        try (Connection conn = DatabaseConnection.getConnection();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
+
+            while (rs.next()) {
+                String studentName = rs.getString("name");
+                String courseTitle = rs.getString("title");
+
+                System.out.println(studentName + " -> " + courseTitle);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }
