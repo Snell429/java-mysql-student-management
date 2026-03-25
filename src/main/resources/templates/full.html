@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Students Full Info</title>
+</head>
+
+<body>
+
+<h1>Étudiants complets</h1>
+
+<table border="1">
+
+<tr>
+<th>Nom</th>
+<th>Email</th>
+<th>Age</th>
+<th>Classe</th>
+<th>Cours</th>
+<th>Date début</th>
+<th>Date fin</th>
+</tr>
+
+<tr th:each="s : ${students}">
+<td th:text="${s.name}"></td>
+<td th:text="${s.email}"></td>
+<td th:text="${s.age}"></td>
+<td th:text="${s.className}"></td>
+<td th:text="${s.course}"></td>
+<td th:text="${s.startDate}"></td>
+<td th:text="${s.endDate}"></td>
+</tr>
+
+</table>
+
+</body>
+</html>
